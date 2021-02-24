@@ -1,0 +1,26 @@
+.vjs-forward-button {
+  left: 70% !important;
+  top: -214px !important;
+  position: absolute;
+  cursor: pointer;
+}
+.vjs-rewind-button {
+  left: 24% !important;
+  top: -214px !important;
+  position: absolute;
+  cursor: pointer;
+}
+.vjs-title {
+  left: 2% !important;
+  top: -347px !important;
+  position: absolute;
+  font-size: 20px !important;
+}
+.vjs-icon-custombutton {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal;
+}
+.vjs-icon-custombutton:before {
+  content: '\f11f';
+}

@@ -1,0 +1,15 @@
+.vjs-forward-button {
+  left: 66% !important;
+  top: 39% !important;
+  position: fixed;
+  cursor: pointer;
+  background-image: url('/images/ico_player_30sforward.png');
+}
+
+.vjs-rewind-button {
+  left: 35% !important;
+  top: 39% !important;
+  position: fixed;
+  cursor: pointer;
+  background-image: url('/images/ico_player_30sforward.png');
+}
