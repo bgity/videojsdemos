@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Manual-player instantiation example</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="video-js.css" rel="stylesheet">
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/video.js/dist/video.js"></script>
+    <script src="https://cdn.dashjs.org/latest/dash.all.debug.js"></script>
+    <script src="https://unpkg.com/videojs-contrib-dash/dist/videojs-dash.js"></script>
+    <style>
+        /*video {
+            width: 640px;
+            height: 360px;
+        }*/
+    </style>
+    </head>
+    <body>
+        <div class="code">
+           <video id=example-video width=600 height=300 class="video-js vjs-default-skin" controls></video>
+        </div>
+	<script>
+	  var player = videojs('example-video');
+	  player.src({ src:'https://s3.amazonaws.com/_bc_dml/example-content/sintel_dash/sintel_vod.mpd', type: 'application/dash+xml'});
+	  player.play();
+     /* var Component = videojs.getComponent("Component");
+       // define option parameter
+       var options = {};
+       options.liveTitle = "LIVE sssssssssssssssss";
+
+       var liveButton = videojs.extend(Component, {
+           constructor: function liveButton(player, options) {
+               Component.apply(this, arguments);
+               if (options.liveTitle) {
+                   this.updateTitle(options.liveTitle);
+               }
+           },
+           createEl: function() {
+               return videojs.dom.createEl("div", {
+                   className: "vjs-live-title"
+               });
+           },
+           updateTitle: function(liveTitle) {
+               if (typeof liveTitle !== "string") {
+                   liveTitle = "";
+               }
+               videojs.dom.emptyEl(this.el());
+               videojs.dom.appendContent(this.el(), liveTitle);
+           }
+       });
+       videojs.registerComponent("liveButton", liveButton);
+       player.controlBar.addChild("liveButton", options);*/
+
+       playerCustomButtonComponent(player);
+
+function playerCustomButtonComponent(player){
+	
+	//Custom Back Button Component Block
+    var Button = videojs.getComponent('Button');
+    var BackButton = videojs.extend(Button, {
+        //The constructor of a component receives two arguments: the
+        //player it will be associated with and an object of options.
+        constructor: function BackButton(player, options) {
+            Button.apply(this, arguments);
+            this.player_ = player;
+            this.options_ = options;
+        },
+
+        buildCSSClass: function() {
+            return "vjs-back-button vjs-extended-controls " + Button.prototype.buildCSSClass.call(this);
+        },
+
+        handleKeyDown: function(event) {
+            //if we are on the backbutton, hitting right, should take us to the captions button
+            if (isEventKey(event, 'ArrowRight')) {
+                event.stopPropagation();
+                //this takes you to ToggleCaptions
+                this.player_.controlBar.getChild('ExtendedControlBar').getChild('ToggleCaption').el().focus();
+            }
+            //if we are on the backbutton, hitting down, then we go to the play button
+            else if (isEventKey(event, 'ArrowDown')) {
+                event.stopPropagation();
+                this.player_.controlBar.playToggle.el().focus();
+            } else if (isEventKey(event, 'Enter')) {
+                //if we are on the backbutton, hitting Enter,this takes you to Outside From App
+            	cityTvNow.back();
+                this.player_.dispose();
+            }else if (isEventKey(event, 'Back')) {
+            	//if we are on the backbutton, hitting Back button, moving on back depth
+            	cityTvNow.back();
+                this.player_.dispose();
+            }
+            
+            //pass it up
+            Button.prototype.handleKeyDown.call(this, event);
+        },
+    });
+    videojs.registerComponent('BackButton', BackButton);
+
+    //ToggleCaption Button Component Block
+    var ToggleCaption = videojs.extend(Button, {
+        // The constructor of a component receives two arguments: the
+        // player it will be associated with and an object of options.
+        constructor: function ToggleCaption(player) {
+            Button.apply(this, arguments);
+            this.player_ = player;
+        },
+
+        buildCSSClass: function() {
+            return "vjs-toggle-caption vjs-extended-controls " + Button.prototype.buildCSSClass.call(this);
+        },
+        handleKeyDown: function(event) {
+
+            //if we are on the CC button, hitting right, should take us to the captions button
+            if (isEventKey(event, 'ArrowLeft')) {
+                event.stopPropagation();
+                //this takes you to ToggleCaptions
+                this.player_.controlBar.getChild('ExtendedControlBar').getChild('BackButton').el().focus();
+            }
+            //if we are on the CC button, hitting down, then we go to the play button
+            else if (isEventKey(event, 'ArrowDown')) {
+                event.stopPropagation();
+                this.player_.controlBar.playToggle.el().focus();
+            }else if (isEventKey(event, 'Back')) {
+            	//if we are on the CC button, hitting Back button, moving on back depth
+            	cityTvNow.back();
+                this.player_.dispose();
+            }
+            //if we are on the CC button, hitting enter,Toggle caption
+            if (isEventKey(event, 'Enter')) {
+                event.stopPropagation();
+                var tracks = this.player_.textTracks(),
+                    track,
+                    i;
+
+                for (i = 0; i < tracks.length; i++) {
+                    track = tracks[i];
+                    if (track.kind === 'captions' || track.kind === 'subtitles') {
+                        if (track.mode !== 'showing') {
+                            track.mode = 'showing';
+                            this.addClass('vjs-caption-on');
+                        } else {
+                            track.mode = 'hidden';
+                            this.removeClass('vjs-caption-on');
+                        }
+                        return;
+                    }
+                }
+            }
+            //pass it up
+            Button.prototype.handleKeyDown.call(this, event);
+        },
+    });
+    videojs.registerComponent('ToggleCaption', ToggleCaption);
+    
+    //Merging BackButton and ToggleCaption Buttons
+    var Component = videojs.getComponent('Component');
+    var ExtendedControlBar = videojs.extend(Component, {
+        constructor: function ExtendedControlBar(player, options) {
+            Component.apply(this, arguments);
+            this.addChild('BackButton', options);
+            this.addChild('ToggleCaption');
+        },
+        createEl: function() {
+            return videojs.dom.createEl('div', {
+                className: 'vjs-extended-control-bar'
+            });
+        },
+    });
+    videojs.registerComponent('ExtendedControlBar', ExtendedControlBar);
+    player.controlBar.addChild('ExtendedControlBar', ExtendedControlBar);
+}
+</script>
+</body>
+</html>

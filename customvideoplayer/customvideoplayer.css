@@ -1,0 +1,100 @@
+.vjs-forward-button {
+  left: 70% !important;
+  top: -240px !important;
+  position: absolute;
+  cursor: pointer;
+}
+.vjs-rewind-button {
+  left: 24% !important;
+  top: -240px !important;
+  position: absolute;
+  cursor: pointer;
+}
+.vjs-title {
+  left: 2% !important;
+  top: -398px !important;
+  position: absolute;
+  font-size: 22px !important;
+}
+.vjs-icon-custombutton {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal;
+}
+.vjs-icon-custombutton:before {
+  content: '\f11f';
+}
+
+.video-js .vjs-duration,
+.vjs-no-flex .vjs-duration {
+  display: block;
+}
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.tickerWrap {
+  position: absolute;
+  bottom: 50px;
+  overflow: hidden;
+  height: 2rem;
+  background-color: #161619;
+  padding-left: 30%;
+  width: 88%;
+  left: 70px;
+  border-radius: 15px;
+}
+.tickerWrap .ticker {
+  display: inline-block;
+  height: 3rem;
+  line-height: 2rem;
+  white-space: nowrap;
+  padding-right: 100%;
+  box-sizing: content-box;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: ticker;
+  animation-name: ticker;
+  -webkit-animation-duration: 120s;
+  animation-duration: 120s;
+}
+.tickerWrap .tickerItem {
+  display: inline-block;
+  padding: 0 1rem;
+  margin-top: -7px;
+  font-size: 1.1rem;
+  color: white;
+}
+.ticker:hover {
+  animation-play-state: paused;
+}
+.markerHref {
+  text-decoration: none;
+  color: white;
+}
+.markerHref:hover,
+active,
+visited {
+  text-decoration: none !important;
+}
