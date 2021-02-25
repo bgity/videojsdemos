@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://unpkg.com/video.js/dist/video-js.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <video
+      id="demoplayer"
+      class="video-js vjs-theme-forest"
+      controls
+      preload="auto"
+      width="1094"
+      height="456"
+      poster=""
+      data-setup='{"liveui": true}'
+      autoplaty
+    >
+      <source
+        src="https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8"
+        type="application/x-mpegURL"
+      />
+    </video>
+    <script src="https://unpkg.com/video.js/dist/alt/video.core.js"></script>
+    <script src="https://unpkg.com/@videojs/http-streaming@1/dist/videojs-http-streaming.js"></script>
+  </body>
+</html>

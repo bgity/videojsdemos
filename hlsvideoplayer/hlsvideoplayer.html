@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://unpkg.com/video.js/dist/video-js.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <video
+      id="demoplayer"
+      class="video-js vjs-theme-forest"
+      controls
+      preload="auto"
+      width="1094"
+      height="456"
+      poster=""
+      data-setup="{}"
+      autoplaty
+    >
+      <source
+        src="https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8"
+        type="application/x-mpegURL"
+      />
+    </video>
+    <script src="https://unpkg.com/video.js/dist/alt/video.core.js"></script>
+    <script src="https://unpkg.com/@videojs/http-streaming@1/dist/videojs-http-streaming.js"></script>
+  </body>
+</html>
