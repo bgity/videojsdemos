@@ -4,19 +4,24 @@
     <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
   </head>
   <body>
-    <video
-      id="demoplayer"
-      class="video-js"
-      controls
-      preload="auto"
-      width="1094"
-      height="456"
-      poster="http://vjs.zencdn.net/v/oceans.png"
-      data-setup="{}"
-      autoplaty
-    >
-      <source src="http://vjs.zencdn.net/v/oceans.mp4" />
+    <video id="dotsub_example" class="video-js vjs-default-skin" width="640" height="264"  
+	poster="http://video-js.zencoder.com/oceans-clip.png" 
+	controls preload="auto" data-setup='[]'>
+   <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+   <track kind='captions' src='https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/chi_hans/vtt' srclang='zh' label='Chinese' default />
+   <track kind='captions' src='https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/eng/vtt' srclang='en' label='English' />
+   <track kind='captions' src='https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/spa/vtt' srclang='es' label='Spanish' />
+   <track kind='captions' src='https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/fre_ca/vtt' srclang='fr' label='French' />
     </video>
     <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+    <script>
+      /* var player = videojs('demoplayer');
+      player.ready(function () {
+        setTimeout(function () {
+          player.autoplay('muted');
+          player.fluid('true');
+        }, 1000);
+      }); */
+    </script>
   </body>
 </html>

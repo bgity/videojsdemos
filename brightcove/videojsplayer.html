@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/city/index.css"
+      rel="stylesheet"
+    />
+    <link href="customvideoplayer.css" rel="stylesheet" />
+  </head>
+  <body>
+    <video
+      id="demoPlayer"
+      class="video-js vjs-theme-city"
+      width="1000"
+      height="550"
+      poster="http://video-js.zencoder.com/oceans.png"
+      controls="false"
+      preload="auto"
+      data-setup="[]"
+    >
+      <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+      <track
+        kind="captions"
+        src="https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/chi_hans/vtt"
+        srclang="zh"
+        label="Chinese"
+      />
+      <track
+        kind="captions"
+        src="https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/eng/vtt"
+        srclang="en"
+        label="English"
+        default
+      />
+      <track
+        kind="captions"
+        src="https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/spa/vtt"
+        srclang="es"
+        label="Spanish"
+      />
+      <track
+        kind="captions"
+        src="https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/fre_ca/vtt"
+        srclang="fr"
+        label="French"
+      />
+    </video>
+
+    <p>
+      <!-- <select name="sel" id="sel">
+        <option value="en">English</option>
+        <option value="zh">Chinese</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+      </select>
+ -->
+     <!--  <ul class="b" name="sel" id="sel">
+        <li value="en" id="en">English</li>
+        <li value="zh" id="zh">Chinese</li>
+        <li value="es" id="es">Spanish</li>
+        <li value="fr" id="fr">French</li>
+      </ul> -->
+
+      <ul class="team__names">
+        <li data-name="en">English</li>
+        <li data-name="zh">Chinese</li>
+        <li data-name="es">Spanish</li>
+        <li data-name="fr">French</li>
+    </ul>
+    </p>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+  <script src="customvideoplayer.js"></script>
+  <script>
+    var player = videojs('demoPlayer');
+    var tracks = player.textTracks();
+    var trackSelector = document.getElementById('sel');
+
+    const meetTheTeamSectionNames = document.querySelectorAll('.team__names li');
+    Array.from(meetTheTeamSectionNames).forEach(name => {
+        name.addEventListener('click', function(e) {
+            const nameMe = e.target.getAttribute('data-name')
+            console.log(nameMe);
+            for (var i = 0; i < tracks.length; i++) {
+            var track = tracks[i];
+            track.mode = 'disabled';
+            if (track.kind === 'captions' && track.language === nameMe) {
+              track.mode = 'showing';
+            }
+           }
+        });
+    });
+
+   /*  trackSelector.addEventListener('click', function (e) {
+      var selectedLanguage1  = this.document.getElementById("fr").value;
+      alert(selectedLanguage1);
+      //var selectedLanguage = this.value;
+      var selectedLanguage = "zh";
+      alert(selectedLanguage);
+      for (var i = 0; i < tracks.length; i++) {
+        var track = tracks[i];
+        track.mode = 'disabled';
+        if (track.kind === 'captions' && track.language === selectedLanguage) {
+          track.mode = 'showing';
+        }
+      }
+    }); */
+  </script>
+</html>

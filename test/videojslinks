@@ -31,3 +31,16 @@ https://github.com/videojs/themes
 
 //text tracks
 https://docs.videojs.com/docs/guides/text-tracks.html
+
+//dash hls
+https://github.com/videojs/http-streaming
+
+//ads
+https://cdnjs.com/libraries/videojs-contrib-ads
+https://stackoverflow.com/questions/29730645/need-step-by-step-instructions-adding-videojs-vast-plugin
+https://codepen.io/Viblast/pen/ZQLwOm
+https://codepen.io/hc2p/pen/mVwERm
+https://www.nuevodevel.com/nuevo/showcase/vast
+
+//very important
+https://videojs.github.io/autoplay-tests/
