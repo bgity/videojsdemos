@@ -67,7 +67,7 @@
         <li data-name="zh">Chinese</li>
         <li data-name="es">Spanish</li>
         <li data-name="fr">French</li>
-    </ul>
+      </ul>
     </p>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -76,6 +76,7 @@
   <script>
     var player = videojs('demoPlayer');
     var tracks = player.textTracks();
+	console.log(tracks);
     var trackSelector = document.getElementById('sel');
 
     const meetTheTeamSectionNames = document.querySelectorAll('.team__names li');

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+    <link href="customvideoplayer.css" rel="stylesheet" />
+  </head>
+  <body>
+    <video
+      id="demoplayer"
+      class="video-js vjs-theme-default"
+      controls
+      preload="auto"
+      width="1094"
+      height="456"
+      poster="http://vjs.zencdn.net/v/oceans.png"
+    >
+      <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+      <track
+        kind="captions"
+        src="https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/chi_hans/vtt"
+        srclang="zh"
+        label="Chinese"
+      />
+      <track
+        kind="captions"
+        src="https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/eng/vtt"
+        srclang="en"
+        label="English"
+        default
+      />
+      <track
+        kind="captions"
+        src="https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/spa/vtt"
+        srclang="es"
+        label="Spanish"
+      />
+      <track
+        kind="captions"
+        src="https://dotsub.com/media/5d5f008c-b5d5-466f-bb83-2b3cfa997992/c/fre_ca/vtt"
+        srclang="fr"
+        label="French"
+      />
+    </video>
+    <!--  <ul class="team__names">
+      <li data-name="en">English</li>
+      <li data-name="zh">Chinese</li>
+      <li data-name="es">Spanish</li>
+      <li data-name="fr">French</li>
+    </ul> -->
+  </body>
+  <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+  <script src="customvideoplayer.js"></script>
+</html>

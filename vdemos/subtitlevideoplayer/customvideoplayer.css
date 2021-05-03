@@ -1,0 +1,305 @@
+.vjs-forward-button {
+  /*  left: 70% !important;
+  top: -240px !important; */
+  position: absolute;
+  cursor: pointer;
+  right: 130px;
+  bottom: 6px;
+}
+.vjs-subtitle-button {
+  position: absolute;
+  cursor: pointer;
+  bottom: 0px;
+  left: 62px;
+}
+.vjs-videoQuality-button {
+  position: absolute;
+  cursor: pointer;
+  left: 50px;
+  bottom: 0px;
+}
+.vjs-rewind-button {
+  /*  left: 24% !important;
+  top: -240px !important; */
+  position: absolute;
+  cursor: pointer;
+  right: 221px;
+  bottom: 6px;
+}
+
+.vjs-icon-fullscreen-enter:before,
+.video-js .vjs-fullscreen-control .vjs-icon-placeholder:before {
+  content: "";
+  background-image: url("images/fullscreen.png") !important;
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: center;
+  bottom: 3px;
+}
+
+.vjs-icon-fullscreen-exit:before,
+.video-js.vjs-fullscreen .vjs-fullscreen-control .vjs-icon-placeholder:before {
+  content: "";
+  background-image: url("images/exit-full-screen-icon.png") !important;
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: center;
+  bottom: 3px;
+}
+.vjs-icon-play:before,
+.video-js .vjs-play-control .vjs-icon-placeholder:before,
+.video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+  content: "";
+  background-image: url("images/play.png");
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: center;
+  bottom: 3px;
+}
+.vjs-icon-pause:before,
+.video-js .vjs-play-control.vjs-playing .vjs-icon-placeholder:before {
+  content: "";
+  background-image: url("images/pause.png");
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: center;
+  bottom: 3px;
+}
+
+.vjs-icon-replay:before,
+.video-js .vjs-play-control.vjs-ended .vjs-icon-placeholder:before {
+  content: "";
+}
+
+.vjs-icon-volume-high:before,
+.video-js .vjs-mute-control .vjs-icon-placeholder:before {
+  content: "";
+  background-image: url("images/volume.png");
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: center;
+  bottom: 3px;
+}
+.video-js .vjs-time-control {
+  flex: none;
+  font-size: 1.7em;
+  line-height: 3em;
+  min-width: 2em;
+  width: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.video-js .vjs-progress-control {
+  position: absolute;
+  width: 90%;
+  top: -3.6em;
+  height: 6px;
+  background-color: #2b333f;
+  background-color: rgba(43, 51, 63, 0.7);
+  left: 20px;
+}
+.video-js .vjs-play-progress:before {
+  font-size: 1.4em;
+  position: absolute;
+  right: -0.5em;
+  top: -0.33333em;
+  z-index: 1;
+}
+.video-js .vjs-progress-holder {
+  position: absolute;
+  margin: 0px;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.video-js .vjs-control-bar {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3em;
+  background-color: transparent;
+}
+.video-js .vjs-fullscreen-control {
+  position: absolute;
+  bottom: 8px;
+  right: 24px;
+}
+
+.video-js .vjs-remaining-time {
+  position: absolute;
+  bottom: 58px;
+  right: 10px;
+}
+.video-js .vjs-volume-panel {
+  position: absolute;
+  right: 65px;
+  bottom: 8px;
+}
+
+.video-js .vjs-play-control {
+  position: absolute;
+  right: 179px;
+  bottom: 8px;
+}
+
+.vjs-forward-button-new {
+  position: absolute;
+}
+
+.vjs-title2 {
+  left: 2% !important;
+  top: -398px !important;
+  position: absolute;
+  font-size: 22px !important;
+}
+.vjs-title {
+  position: absolute;
+  font-size: 18px !important;
+  left: 112px;
+  bottom: 18px;
+}
+
+.vjs-quality-title {
+  position: absolute;
+  font-size: 18px !important;
+  left: 103px;
+  bottom: 18px;
+}
+.vjs-icon-custombutton {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal;
+}
+.vjs-icon-custombutton:before {
+  content: "\f11f";
+}
+
+.video-js .vjs-duration,
+.vjs-no-flex .vjs-duration {
+  display: none;
+}
+.video-js .vjs-picture-in-picture-control {
+  display: none;
+}
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.tickerWrap {
+  position: absolute;
+  bottom: 50px;
+  overflow: hidden;
+  height: 2rem;
+  background-color: #161619;
+  padding-left: 30%;
+  width: 88%;
+  left: 70px;
+  border-radius: 15px;
+}
+.tickerWrap .ticker {
+  display: inline-block;
+  height: 3rem;
+  line-height: 2rem;
+  white-space: nowrap;
+  padding-right: 100%;
+  box-sizing: content-box;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: ticker;
+  animation-name: ticker;
+  -webkit-animation-duration: 120s;
+  animation-duration: 120s;
+}
+.tickerWrap .tickerItem {
+  display: inline-block;
+  padding: 0 1rem;
+  margin-top: -7px;
+  font-size: 1.1rem;
+  color: white;
+}
+.ticker:hover {
+  animation-play-state: paused;
+}
+.markerHref {
+  text-decoration: none;
+  color: white;
+}
+.markerHref:hover,
+active,
+visited {
+  text-decoration: none !important;
+}
+
+.shoeHideDiv {
+  display: block;
+}
+
+
+
+/* VIDEO QUALITY CONTENT */
+.vjs-subtitlesContent {
+  height: 300px !important;
+  width: 200px !important;
+  background: rgba(44, 44, 44, 0.6) !important;
+  position: absolute;
+  bottom: 13%;
+  left: 6%;
+  z-index: 4;
+  border-radius: 10px;
+}
+
+.vjs-subtitlesContent h3 {
+  list-style-type: none;
+  padding: 15px;
+  font-size: 20px !important;
+  opacity: 1 !important;
+  font-family: SFProText-SemiBold !important;
+  margin-bottom: 0px;
+  text-align: left;
+}
+
+.vjs-subtitlesContent ol {
+  list-style-type: none;
+  padding: 10px;
+  font-size: 20px;
+  opacity: 1 !important;
+  text-align: left;
+  padding: 20px;
+  margin: 0;
+}
+
+.vjs-subtitlesContent li {
+  padding: 5px 0px;
+  cursor:pointer;
+}
+
+.vjs-subtitlesContent span {
+  padding-left: 70px;
+}
+
+.vjs-subs-caps-button {
+  display: none;
+}

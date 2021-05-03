@@ -4,7 +4,7 @@ console.log(tracks);
 
 var options = {};
 options.forwardButton = 'images/ico_player_30sforward.png';
-options.vjsToggleDiv1 = 'images/ico_player_30sforward.png';
+//options.vjsToggleDiv1 = 'images/ico_player_30sforward.png';
 options.rewindButton = 'images/ico_player_30sback.png';
 options.title = 'Ocean fish deep dive';
 options.newsTicker =
@@ -97,7 +97,7 @@ var vjsTitle = videojs.extend(vjsButton, {
 videojs.registerComponent('vjsTitle', vjsTitle);
 player.getChild('controlBar').addChild('vjsTitle', options);
 
-var vjsToggleDiv = videojs.extend(vjsButton, {
+/* var vjsToggleDiv = videojs.extend(vjsButton, {
   constructor: function (player, options) {
     vjsButton.apply(this, arguments);
     if (options.vjsToggleDiv1) {
@@ -126,7 +126,7 @@ var vjsToggleDiv = videojs.extend(vjsButton, {
       })
     );
   },
-});
+}); */
 videojs.registerComponent('vjsToggleDiv', vjsToggleDiv);
 player.getChild('controlBar').addChild('vjsToggleDiv', options);
 

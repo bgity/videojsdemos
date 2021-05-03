@@ -128,6 +128,10 @@ body {
   color: #fff;
 }
 
+.vjs-subs-caps-button {
+  display: none;
+}
+
 /* .vjs-icon-play,
 .video-js .vjs-play-control .vjs-icon-placeholder,
 .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
